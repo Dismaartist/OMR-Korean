@@ -50,9 +50,18 @@
                 font-variation-settings: "wdth" 100;
                 transition-duration: 0.5s;
             }
+            .Cancel{
+                position: absolute;
+                left: 95%;
+                opacity: 0;
+            }
 
             .AKeypad{transition-duration: 0.4s;}
-            .AKeypad:active{transition-duration: 0.1s; border: 5px solid rgb(0, 0, 0);}
+            .AKeypad:active{
+                transition-duration: 0.1s;
+                border: 5px solid rgb(0, 0, 0);
+                opacity: 1;
+            }
 
             .R1{left: 20%;}
             .R2{left: 35%;}
@@ -68,12 +77,6 @@
                 border: 3px solid rgb(200, 200, 200);
             }
             .R45{left: 72.5%;}
-
-            #Cancel{
-                position: absolute;
-                left: 95%;
-                opacity: 0;
-            }
 
             #N{
                 position: absolute;
@@ -166,7 +169,7 @@
                 <div class="AKeypad R3" id="A3" onclick="Answer(3)">3</div>
                 <div class="AKeypad R4" id="A4" onclick="Answer(4)">4</div>
                 <div class="AKeypad R5" id="A5" onclick="Answer(5)">5</div>
-                <div class="AKeypad" id="Cancel" onclick="Cancel()">-</div>
+                <div class="AKeypad Cancel" onclick="Cancel()">-</div>
             </div>
         </div>
         <div id="N"></div>
@@ -268,13 +271,13 @@
 
             function Save(){
                 if (document.getElementById('1').textContent == '-'){
-                    OMRCallList = window.localStorage.getItem('OMR')
+                    OMRCallList = window.localStorage.getItem('OMR_K')
                     for (i=0; i<45; i++){document.getElementById(i+1).textContent = OMRCallList[i]}
                     for (i=0; i<45; i++){document.getElementById(i+1).style.borderColor = "rgb(200, 200, 200)"}
                 }else{
                     OMRList = ''
                     for (i=0; i<45; i++){OMRList += document.getElementById(i+1).textContent}
-                    window.localStorage.setItem('OMR', OMRList)
+                    window.localStorage.setItem('OMR_K', OMRList)
                 }
             }
         </script>
