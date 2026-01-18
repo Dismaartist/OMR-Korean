@@ -1,5 +1,3 @@
-# OMR-Korean
-<!DOCTYPE html>
 <html>
     <head>
         <title>OMR-Korean</title>
