@@ -28,6 +28,7 @@
             #L8{top: 70%;}
             #L9{top: 80%;}
             #L10{top: 100%;}
+            #L11{top: 110%}
 
             .Keypad, .AKeypad{
                 position: absolute;
@@ -50,8 +51,8 @@
                 transition-duration: 0.5s;
             }
 
-            .A{transition-duration: 0.4s;}
-            .A:active{transition-duration: 0.1s; border: 5px solid rgb(0, 0, 0);}
+            .AKeypad{transition-duration: 0.4s;}
+            .AKeypad:active{transition-duration: 0.1s; border: 5px solid rgb(0, 0, 0);}
 
             .R1{left: 10%;}
             .R2{left: 30%;}
@@ -67,6 +68,12 @@
                 border: 3px solid rgb(200, 200, 200);
             }
             .R45{left: 79.6%;}
+
+            #Cancel{
+                position: absolute;
+                left: 100%;
+                opacity: 0;
+            }
 
             #N{
                 position: absolute;
@@ -154,16 +161,16 @@
                 <div class="Keypad R5" id="45" onclick="Click(45)">-</div>
             </div>
             <div class="Line" id="L10">
-                <div class="AKeypad R1 A" id="A1" onclick="Answer(1)">1</div>
-                <div class="AKeypad R2 A" id="A2" onclick="Answer(2)">2</div>
-                <div class="AKeypad R3 A" id="A3" onclick="Answer(3)">3</div>
-                <div class="AKeypad R4 A" id="A4" onclick="Answer(4)">4</div>
-                <div class="AKeypad R5 A" id="A5" onclick="Answer(5)">5</div>
+                <div class="AKeypad R1" id="A1" onclick="Answer(1)">1</div>
+                <div class="AKeypad R2" id="A2" onclick="Answer(2)">2</div>
+                <div class="AKeypad R3" id="A3" onclick="Answer(3)">3</div>
+                <div class="AKeypad R4" id="A4" onclick="Answer(4)">4</div>
+                <div class="AKeypad R5" id="A5" onclick="Answer(5)">5</div>
+                <div class="AKeypad" id="Cancel" onclick="Cancel()">-</div>
             </div>
         </div>
         <div id="N"></div>
         
-        <script src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
         <script type="text/javascript">
             var Hidden = ['0', '0', '0', '0', '0', '0']
             var Ready = []
@@ -207,6 +214,14 @@
                 if (HiddenCode == '333333'){PartScore(); Hidden = ['0', '0', '0', '0', '0', '0']}
                 if (HiddenCode == '444444'){Give=!Give; Hidden = ['0', '0', '0', '0', '0', '0']}
                 if (HiddenCode == '555555'){Save(); Hidden = ['0', '0', '0', '0', '0', '0']}
+            }
+
+            function Cancel(){
+                if (Ready.length > 0){
+                    document.getElementById(Ready[0]).textContent='-'
+                    document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"
+                }
+                Ready.shift()
             }
 
             function openFile() {
@@ -261,12 +276,6 @@
                     window.localStorage.setItem('OMR', OMRList)
                 }
             }
-
-            $(document).ready(function() {
-                $(".Keypad").dblclick(function() {
-                    if (Give == false){document.getElementById($(this).attr("id")).textContent = '-'}
-                });
-            });
         </script>
     </body>
 </html>
