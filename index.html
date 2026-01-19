@@ -215,7 +215,7 @@
                 if (HiddenCode == '111111'){openFile(); Hidden = ['0', '0', '0', '0', '0', '0']}
                 if (HiddenCode == '222222'){Score(); Hidden = ['0', '0', '0', '0', '0', '0']}
                 if (HiddenCode == '333333'){PartScore(); Hidden = ['0', '0', '0', '0', '0', '0']}
-                if (HiddenCode == '444444'){Give=!Give; Hidden = ['0', '0', '0', '0', '0', '0']}
+                if (HiddenCode == '444444'){funcGive(); Hidden = ['0', '0', '0', '0', '0', '0']}
                 if (HiddenCode == '555555'){Save(); Hidden = ['0', '0', '0', '0', '0', '0']}
             }
 
@@ -267,6 +267,23 @@
                     Start += SplitList[k]
                 }
                 document.getElementById('N').textContent = Split[0]+' / '+Split[1]+' / '+Split[2]+' / '+Split[3]+'\n'+Split[4]+' / '+Split[5]+' / '+Split[6]+' / '+Split[7]+'\n'+Split[8]+' / '+Split[9]
+                Start = 1
+                for (k=0; k<10; k++){
+                    for (i=Start; i<Start+SplitList[k]; i++){
+                        if (document.getElementById(i).textContent != "-" && String(Split[k]) == '0'){
+                            document.getElementById(i).style.borderColor = "rgb(151, 193, 169)"
+                        }else{
+                            document.getElementById(i).style.borderColor = "rgb(200, 200, 200)"
+                        }
+                    }
+                    Start += SplitList[k]
+                }
+            }
+
+            function funcGive(){
+                Give = !Give
+                if (Give == true){document.getElementById('A4').textContent = '!'}
+                else{document.getElementById('A4').textContent = '4'}
             }
 
             function Save(){
