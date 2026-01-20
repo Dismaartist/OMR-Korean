@@ -176,6 +176,7 @@
         
         <script type="text/javascript">
             var Hidden = ['0', '0', '0', '0', '0', '0']
+            var State = []
             var Ready = []
             var Correct = []
             var SplitList = []
@@ -185,13 +186,36 @@
             function Click(Num){
                 if(Give == false){
                     if (Ready[0] == Num){
-                        document.getElementById(Num).style.borderColor = "rgb(200, 200, 200)"
+                        if (State[0] == "Wrong"){
+                            document.getElementById(Num).style.borderColor = "rgb(255, 150, 138)"
+                        }else if(State[0] == "Right"){
+                            document.getElementById(Num).style.borderColor = "rgb(151, 193, 169)"
+                        }else{
+                            document.getElementById(Num).style.borderColor = "rgb(200, 200, 200)"
+                        }
                         Ready.pop()
+                        State.pop()
                     }else{
-                        if (Ready.length != 0){document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"}
-                        document.getElementById(Num).style.borderColor = "black"
-                        Ready.pop()
+                        if (Ready.length != 0){
+                            if (State[0] == "Wrong"){
+                                document.getElementById(Ready[0]).style.borderColor = "rgb(255, 150, 138)"
+                            }else if(State[0] == "Right"){
+                                document.getElementById(Ready[0]).style.borderColor = "rgb(151, 193, 169)"
+                            }else{
+                                document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"
+                            }
+                            Ready.pop()
+                            State.pop()
+                        }
                         Ready.push(Num)
+                        if (document.getElementById(Ready[0]).style.borderColor == "rgb(255, 150, 138)"){
+                            State.push("Wrong")
+                        }else if(document.getElementById(Ready[0]).style.borderColor == "rgb(151, 193, 169)"){
+                            State.push("Right")
+                        }else{
+                            State.push("None")
+                        }
+                        document.getElementById(Num).style.borderColor = "black"
                     }
                 }else{
                     document.getElementById(Num).style.borderColor = "rgb(151, 193, 169)"
@@ -205,6 +229,14 @@
                     document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"
                     if (Ready[0] < 45){
                         Ready.push(Ready[0] + 1)
+                        State.pop()
+                        if (document.getElementById(Ready[1]).style.borderColor == "rgb(255, 150, 138)"){
+                            State.push("Wrong")
+                        }else if(document.getElementById(Ready[1]).style.borderColor == "rgb(151, 193, 169)"){
+                            State.push("Right")
+                        }else{
+                            State.push("None")
+                        }
                         document.getElementById(Ready[1]).style.borderColor = "black"
                     }
                 }
