@@ -7,37 +7,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,900&display=swap" rel="stylesheet">
         <style>
             body{-webkit-user-select: none; -moz-user-select: none; -ms-use-select: none; user-select: none;}
-            
-            #Problem{
-                position: absolute;
-                width: 80%;
-                height: 80%;
-                top: 45%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-
-            .Line{position: absolute; width: 100%; height: 10%;}
-            #L1{top: 0%;}
-            #L2{top: 10%;}
-            #L3{top: 20%;}
-            #L4{top: 30%;}
-            #L5{top: 40%;}
-            #L6{top: 50%;}
-            #L7{top: 60%;}
-            #L8{top: 70%;}
-            #L9{top: 80%;}
-            #L10{top: 100%;}
-            #L11{top: 110%}
-
-            .Keypad, .AKeypad{
-                position: absolute;
-                width: 50px;
-                height: 50px;
-                top: 50%;
-                transform: translate(-50%, -50%);
-                border: 5px solid rgb(200, 200, 200);
-                color: black;
+            body div{
                 font-size: 30px;
                 font-weight: bold;
                 display: flex;
@@ -48,216 +18,253 @@
                 font-weight: 900;
                 font-style: normal;
                 font-variation-settings: "wdth" 100;
-                transition-duration: 0.5s;
-            }
-            .Cancel{
-                position: absolute;
-                left: 95%;
-                opacity: 0;
+                white-space: pre-line;
+                text-align: center;
             }
 
-            .AKeypad{transition-duration: 0.4s;}
-            .AKeypad:active{
-                transition-duration: 0.1s;
-                border: 5px solid rgb(0, 0, 0);
-                opacity: 1;
+            #Plate{
+                position: absolute;
+                width: 60%;
+                height: 95%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
             }
+            #Problem{
+                position: absolute;
+                width: 100%;
+                height: 80%;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+            #Answer{
+                position: absolute;
+                width: 100%;
+                height: 20%;
+                top: 90%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .Line{
+                position: absolute;
+                width: 100%;
+                height: 10%;
+                left:50%;
+                transform: translate(-50%, -50%);
+            }
+            #L1{top: 10%;}
+            #L2{top: 20%;}
+            #L3{top: 30%;}
+            #L4{top: 40%;}
+            #L5{top: 50%;}
+            #L6{top: 60%;}
+            #L7{top: 70%;}
+            #L8{top: 80%;}
+            #L9{top: 90%;}
+            #AL1{top: 50%;}
 
             .R1{left: 20%;}
             .R2{left: 35%;}
             .R3{left: 50%;}
             .R4{left: 65%;}
             .R5{left: 80%;}
-            .R6, .R45{
+
+            .Keypad{
                 position: absolute;
-                height: 10px;
-                top: 80%;
+                width: 50px;
+                height: 50px;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                border: 5px solid rgb(200, 200, 200);
+                transition-duration: 0.5s;
+            }
+            #AL1 .Keypad{transition-duration: 0.45s;}
+            #AL1 .Keypad:active{
+                transition-duration: 0.05s;
+                border: 5px solid black;
+            }
+
+            #Cancel{left: 95%; opacity: 0;}
+            #Cancel:active{opacity: 1;}
+
+            .Block{
+                position: absolute;
+                width: 0%;
+                height: 15%;
+                top: 85%;
                 left: 87.5%;
                 transform: translate(-50%, -50%);
                 border: 3px solid rgb(200, 200, 200);
             }
-            .R45{left: 72.5%;}
+            #BBlock{left: 72.5%;}
 
             #N{
                 position: absolute;
                 top: 81%;
                 left: 50%;
                 transform: translate(-50%, -50%);
-                font-family: "Roboto", sans-serif;
-                font-optical-sizing: auto;
-                font-weight: 900;
-                font-style: normal;
-                font-variation-settings: "wdth" 100;
-                white-space: pre-line;
-                text-align: center;
+                font-size: 15px;
             }
         </style>
     </head>
     <body>
-        <div id="Problem">
-            <div class="Line" id="L1">
-                <div class="Keypad R1" id="1" onclick="Click(1)">-</div>
-                <div class="Keypad R2" id="2" onclick="Click(2)">-</div>
-                <div class="Keypad R3" id="3" onclick="Click(3)">-</div>
-                <div class="Keypad R4" id="4" onclick="Click(4)">-</div>
-                <div class="Keypad R5" id="5" onclick="Click(5)">-</div>
+        <div id="Plate">
+            <div id="Problem">
+                <div class="Line" id="L1">
+                    <div class="Keypad R1" id="1" onclick="Click(1)">-</div>
+                    <div class="Keypad R2" id="2" onclick="Click(2)">-</div>
+                    <div class="Keypad R3" id="3" onclick="Click(3)">-</div>
+                    <div class="Keypad R4" id="4" onclick="Click(4)">-</div>
+                    <div class="Keypad R5" id="5" onclick="Click(5)">-</div>
+                </div>
+                <div class="Line" id="L2">
+                    <div class="Keypad R1" id="6" onclick="Click(6)">-</div>
+                    <div class="Keypad R2" id="7" onclick="Click(7)">-</div>
+                    <div class="Keypad R3" id="8" onclick="Click(8)">-</div>
+                    <div class="Keypad R4" id="9" onclick="Click(9)">-</div>
+                    <div class="Keypad R5" id="10" onclick="Click(10)">-</div>
+                    <div class="Block" id="E10"></div>
+                </div>
+                <div class="Line" id="L3">
+                    <div class="Keypad R1" id="11" onclick="Click(11)">-</div>
+                    <div class="Keypad R2" id="12" onclick="Click(12)">-</div>
+                    <div class="Keypad R3" id="13" onclick="Click(13)">-</div>
+                    <div class="Keypad R4" id="14" onclick="Click(14)">-</div>
+                    <div class="Keypad R5" id="15" onclick="Click(15)">-</div>
+                </div>
+                <div class="Line" id="L4">
+                    <div class="Keypad R1" id="16" onclick="Click(16)">-</div>
+                    <div class="Keypad R2" id="17" onclick="Click(17)">-</div>
+                    <div class="Keypad R3" id="18" onclick="Click(18)">-</div>
+                    <div class="Keypad R4" id="19" onclick="Click(19)">-</div>
+                    <div class="Keypad R5" id="20" onclick="Click(20)">-</div>
+                    <div class="Block" id="E20"></div>
+                </div>
+                <div class="Line" id="L5">
+                    <div class="Keypad R1" id="21" onclick="Click(21)">-</div>
+                    <div class="Keypad R2" id="22" onclick="Click(22)">-</div>
+                    <div class="Keypad R3" id="23" onclick="Click(23)">-</div>
+                    <div class="Keypad R4" id="24" onclick="Click(24)">-</div>
+                    <div class="Keypad R5" id="25" onclick="Click(25)">-</div>
+                </div>
+                <div class="Line" id="L6">
+                    <div class="Keypad R1" id="26" onclick="Click(26)">-</div>
+                    <div class="Keypad R2" id="27" onclick="Click(27)">-</div>
+                    <div class="Keypad R3" id="28" onclick="Click(28)">-</div>
+                    <div class="Keypad R4" id="29" onclick="Click(29)">-</div>
+                    <div class="Keypad R5" id="30" onclick="Click(30)">-</div>
+                    <div class="Block" id="E30"></div>
+                </div>
+                <div class="Line" id="L7">
+                    <div class="Keypad R1" id="31" onclick="Click(31)">-</div>
+                    <div class="Keypad R2" id="32" onclick="Click(32)">-</div>
+                    <div class="Keypad R3" id="33" onclick="Click(33)">-</div>
+                    <div class="Keypad R4" id="34" onclick="Click(34)">-</div>
+                    <div class="Block" id="BBlock"></div>
+                    <div class="Keypad R5" id="35" onclick="Click(35)">-</div>
+                </div>
+                <div class="Line" id="L8">
+                    <div class="Keypad R1" id="36" onclick="Click(36)">-</div>
+                    <div class="Keypad R2" id="37" onclick="Click(37)">-</div>
+                    <div class="Keypad R3" id="38" onclick="Click(38)">-</div>
+                    <div class="Keypad R4" id="39" onclick="Click(39)">-</div>
+                    <div class="Keypad R5" id="40" onclick="Click(40)">-</div>
+                    <div class="Block" id="E40"></div>
+                </div>
+                <div class="Line" id="L9">
+                    <div class="Keypad R1" id="41" onclick="Click(41)">-</div>
+                    <div class="Keypad R2" id="42" onclick="Click(42)">-</div>
+                    <div class="Keypad R3" id="43" onclick="Click(43)">-</div>
+                    <div class="Keypad R4" id="44" onclick="Click(44)">-</div>
+                    <div class="Keypad R5" id="45" onclick="Click(45)">-</div>
+                </div>
             </div>
-            <div class="Line" id="L2">
-                <div class="Keypad R1" id="6" onclick="Click(6)">-</div>
-                <div class="Keypad R2" id="7" onclick="Click(7)">-</div>
-                <div class="Keypad R3" id="8" onclick="Click(8)">-</div>
-                <div class="Keypad R4" id="9" onclick="Click(9)">-</div>
-                <div class="Keypad R5" id="10" onclick="Click(10)">-</div>
-                <div class="R6 E" id="E10"></div>
-            </div>
-            <div class="Line" id="L3">
-                <div class="Keypad R1" id="11" onclick="Click(11)">-</div>
-                <div class="Keypad R2" id="12" onclick="Click(12)">-</div>
-                <div class="Keypad R3" id="13" onclick="Click(13)">-</div>
-                <div class="Keypad R4" id="14" onclick="Click(14)">-</div>
-                <div class="Keypad R5" id="15" onclick="Click(15)">-</div>
-            </div>
-            <div class="Line" id="L4">
-                <div class="Keypad R1" id="16" onclick="Click(16)">-</div>
-                <div class="Keypad R2" id="17" onclick="Click(17)">-</div>
-                <div class="Keypad R3" id="18" onclick="Click(18)">-</div>
-                <div class="Keypad R4" id="19" onclick="Click(19)">-</div>
-                <div class="Keypad R5" id="20" onclick="Click(20)">-</div>
-                <div class="R6 E" id="E20"></div>
-            </div>
-            <div class="Line" id="L5">
-                <div class="Keypad R1" id="21" onclick="Click(21)">-</div>
-                <div class="Keypad R2" id="22" onclick="Click(22)">-</div>
-                <div class="Keypad R3" id="23" onclick="Click(23)">-</div>
-                <div class="Keypad R4" id="24" onclick="Click(24)">-</div>
-                <div class="Keypad R5" id="25" onclick="Click(25)">-</div>
-            </div>
-            <div class="Line" id="L6">
-                <div class="Keypad R1" id="26" onclick="Click(26)">-</div>
-                <div class="Keypad R2" id="27" onclick="Click(27)">-</div>
-                <div class="Keypad R3" id="28" onclick="Click(28)">-</div>
-                <div class="Keypad R4" id="29" onclick="Click(29)">-</div>
-                <div class="Keypad R5" id="30" onclick="Click(30)">-</div>
-                <div class="R6 E" id="E30"></div>
-            </div>
-            <div class="Line" id="L7">
-                <div class="Keypad R1" id="31" onclick="Click(31)">-</div>
-                <div class="Keypad R2" id="32" onclick="Click(32)">-</div>
-                <div class="Keypad R3" id="33" onclick="Click(33)">-</div>
-                <div class="Keypad R4" id="34" onclick="Click(34)">-</div>
-                <div class="R45 E"></div>
-                <div class="Keypad R5" id="35" onclick="Click(35)">-</div>
-            </div>
-            <div class="Line" id="L8">
-                <div class="Keypad R1" id="36" onclick="Click(36)">-</div>
-                <div class="Keypad R2" id="37" onclick="Click(37)">-</div>
-                <div class="Keypad R3" id="38" onclick="Click(38)">-</div>
-                <div class="Keypad R4" id="39" onclick="Click(39)">-</div>
-                <div class="Keypad R5" id="40" onclick="Click(40)">-</div>
-                <div class="R6 E" id="E40"></div>
-            </div>
-            <div class="Line" id="L9">
-                <div class="Keypad R1" id="41" onclick="Click(41)">-</div>
-                <div class="Keypad R2" id="42" onclick="Click(42)">-</div>
-                <div class="Keypad R3" id="43" onclick="Click(43)">-</div>
-                <div class="Keypad R4" id="44" onclick="Click(44)">-</div>
-                <div class="Keypad R5" id="45" onclick="Click(45)">-</div>
-            </div>
-            <div class="Line" id="L10">
-                <div class="AKeypad R1" id="A1" onclick="Answer(1)">1</div>
-                <div class="AKeypad R2" id="A2" onclick="Answer(2)">2</div>
-                <div class="AKeypad R3" id="A3" onclick="Answer(3)">3</div>
-                <div class="AKeypad R4" id="A4" onclick="Answer(4)">4</div>
-                <div class="AKeypad R5" id="A5" onclick="Answer(5)">5</div>
-                <div class="AKeypad Cancel" onclick="Cancel()">-</div>
+            <div id="N"></div>
+            <div id="Answer">
+                <div class="Line" id="AL1">
+                    <div class="Keypad R1" id="A1" onclick="Answer(1)">1</div>
+                    <div class="Keypad R2" id="A2" onclick="Answer(2)">2</div>
+                    <div class="Keypad R3" id="A3" onclick="Answer(3)">3</div>
+                    <div class="Keypad R4" id="A4" onclick="Answer(4)">4</div>
+                    <div class="Keypad R5" id="A5" onclick="Answer(5)">5</div>
+                    <div class="Keypad" id="Cancel" onclick="Cancel()">-</div>
+                </div>
             </div>
         </div>
-        <div id="N"></div>
         
         <script type="text/javascript">
-            var Hidden = ['0', '0', '0', '0', '0', '0']
-            var State = []
+            var Code = "000000"
             var Ready = []
             var Correct = []
-            var SplitList = []
-            var Start = 1
-            var Give = false
+            var GiveOn = false
 
             function Click(Num){
-                if(Give == false){
+                if(GiveOn == false){
                     if (Ready[0] == Num){
-                        if (State[0] == "Wrong"){
-                            document.getElementById(Num).style.borderColor = "rgb(255, 150, 138)"
-                        }else if(State[0] == "Right"){
-                            document.getElementById(Num).style.borderColor = "rgb(151, 193, 169)"
-                        }else{
-                            document.getElementById(Num).style.borderColor = "rgb(200, 200, 200)"
-                        }
-                        Ready.pop()
-                        State.pop()
+                        item = document.getElementById(Ready[0])
+                        if (Ready[1] == "Right"){item.style.borderColor = "rgb(151, 193, 169)"}
+                        if (Ready[1] == "Wrong"){item.style.borderColor = "rgb(255, 150, 138)"}
+                        if (Ready[1] == "Plain"){item.style.borderColor = "rgb(200, 200, 200)"}
+                        Ready = []
                     }else{
                         if (Ready.length != 0){
-                            if (State[0] == "Wrong"){
-                                document.getElementById(Ready[0]).style.borderColor = "rgb(255, 150, 138)"
-                            }else if(State[0] == "Right"){
-                                document.getElementById(Ready[0]).style.borderColor = "rgb(151, 193, 169)"
-                            }else{
-                                document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"
-                            }
-                            Ready.pop()
-                            State.pop()
+                            item = document.getElementById(Ready[0])
+                            if (Ready[1] == "Right"){item.style.borderColor = "rgb(151, 193, 169)"}
+                            if (Ready[1] == "Wrong"){item.style.borderColor = "rgb(255, 150, 138)"}
+                            if (Ready[1] == "Plain"){item.style.borderColor = "rgb(200, 200, 200)"}
+                            Ready = []
                         }
                         Ready.push(Num)
-                        if (document.getElementById(Ready[0]).style.borderColor == "rgb(255, 150, 138)"){
-                            State.push("Wrong")
-                        }else if(document.getElementById(Ready[0]).style.borderColor == "rgb(151, 193, 169)"){
-                            State.push("Right")
-                        }else{
-                            State.push("None")
-                        }
-                        document.getElementById(Num).style.borderColor = "black"
+                        item = document.getElementById(Ready[0])
+                        if (item.style.borderColor == "rgb(151, 193, 169)"){Ready.push("Right")}
+                        if (item.style.borderColor == "rgb(255, 150, 138)"){Ready.push("Wrong")}
+                        if (item.style.borderColor == "rgb(200, 200, 200)"){Ready.push("Plain")}
+                        if (item.style.borderColor == ""){Ready.push("Plain")}
+                        item.style.borderColor = "rgb(000, 000, 000)"
                     }
                 }else{
-                    document.getElementById(Num).style.borderColor = "rgb(151, 193, 169)"
-                    document.getElementById(Num).textContent = Correct[Num-1]
+                    item = document.getElementById(Num)
+                    item.style.borderColor = "rgb(151, 193, 169)"
+                    item.textContent = Correct[Num - 1]
                 }
             }
 
             function Answer(Num){
-                if (Ready.length > 0){
-                    document.getElementById(Ready[0]).textContent=Num
-                    document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"
+                if (Ready.length != 0){
+                    item = document.getElementById(Ready[0])
+                    item.textContent = Num
+                    item.style.borderColor = "rgb(200, 200, 200)"
                     if (Ready[0] < 45){
                         Ready.push(Ready[0] + 1)
-                        State.pop()
-                        if (document.getElementById(Ready[1]).style.borderColor == "rgb(255, 150, 138)"){
-                            State.push("Wrong")
-                        }else if(document.getElementById(Ready[1]).style.borderColor == "rgb(151, 193, 169)"){
-                            State.push("Right")
-                        }else{
-                            State.push("None")
-                        }
-                        document.getElementById(Ready[1]).style.borderColor = "black"
+                        Ready.splice(0, 2)
+                        item = document.getElementById(Ready[0])
+                        if (item.style.borderColor == "rgb(151, 193, 169)"){Ready.push("Right")}
+                        if (item.style.borderColor == "rgb(255, 150, 138)"){Ready.push("Wrong")}
+                        if (item.style.borderColor == "rgb(200, 200, 200)"){Ready.push("Plain")}
+                        if (item.style.borderColor == ""){Ready.push("Plain")}
+                        item.style.borderColor = "rgb(000, 000, 000)"
+                        console.log(Ready)
                     }
                 }
-                Ready.shift()
-                Hidden.push(String(Num))
-                Hidden.shift()
-                HiddenCode = Hidden[0] + Hidden[1] + Hidden[2] + Hidden[3] + Hidden[4] + Hidden[5]
-                if (HiddenCode == '111111'){openFile(); Hidden = ['0', '0', '0', '0', '0', '0']}
-                if (HiddenCode == '222222'){Score(); Hidden = ['0', '0', '0', '0', '0', '0']}
-                if (HiddenCode == '333333'){PartScore(); Hidden = ['0', '0', '0', '0', '0', '0']}
-                if (HiddenCode == '444444'){funcGive(); Hidden = ['0', '0', '0', '0', '0', '0']}
-                if (HiddenCode == '555555'){Save(); Hidden = ['0', '0', '0', '0', '0', '0']}
+                Code += Num
+                Code = Code.substr(1)
+                if (Code == '111111'){Code = "000000"; openFile()}
+                if (Code == '222222'){Code = "000000"; Score()}
+                if (Code == '333333'){Code = "000000"; PartScore()}
+                if (Code == '444444'){Code = "000000"; Give()}
+                if (Code == '555555'){Code = "000000"; Save()}
             }
 
             function Cancel(){
-                if (Ready.length > 0){
-                    document.getElementById(Ready[0]).textContent='-'
-                    document.getElementById(Ready[0]).style.borderColor = "rgb(200, 200, 200)"
+                Code = "000000"
+                if (Ready.length != 0){
+                    item = document.getElementById(Ready[0])
+                    item.textContent = "-"
+                    item.style.borderColor = "rgb(200, 200, 200)"
+                    Ready = []
                 }
-                Ready.shift()
-                Hidden = ['0', '0', '0', '0', '0', '0']
             }
 
             function openFile() {
@@ -272,61 +279,77 @@
                 var reader = new FileReader();
                 reader.readAsText(file, "utf-8");
                 reader.onload = function () {
-                    Correct = reader.result.replace(/\r\n/g, ',').split(',').slice(0, 45)
-                    SplitList = reader.result.replace(/\r\n/g, ',').split(',').slice(45).map(Number)
-                    for (i=0; i<document.getElementsByClassName('E').length; i++){document.getElementsByClassName('E').item(i).style.borderColor = "black"}
+                    Correct = reader.result.replace(/\r\n/g, ',').split(',')
+                    item = document.getElementsByClassName('Block')
+                    for (i = 0; i < item.length; i++){item.item(i).style.borderColor = "rgb(000, 000, 000)"}
                 };
             }
 
             function Score(){
-                for (i=0; i<45; i++){
-                    if(document.getElementById(i+1).textContent != '-'){
-                        if(document.getElementById(i+1).textContent == Correct[i]){document.getElementById(i+1).style.borderColor = "rgb(151, 193, 169)"}
-                        else{document.getElementById(i+1).style.borderColor = "rgb(255, 150, 138)"}
+                for (i = 1; i <= 45; i++){
+                    item = document.getElementById(i)
+                    if(item.textContent != '-'){
+                        if (item.textContent == Correct[i-1]){item.style.borderColor = "rgb(151, 193, 169)"}
+                        else {item.style.borderColor = "rgb(255, 150, 138)"}
                     }
                 }
             }
             
             function PartScore(){
-                Start = 1
                 Split = ''
-                for (k=0; k<10; k++){
-                    N = 0
-                    for (i=Start; i<Start+SplitList[k]; i++){
-                        if (document.getElementById(i).textContent != "-" && document.getElementById(i).textContent != Correct[i-1]){N += 1}
-                    }
-                    Split += N
-                    Start += SplitList[k]
-                }
-                document.getElementById('N').textContent = Split[0]+' / '+Split[1]+' / '+Split[2]+' / '+Split[3]+'\n'+Split[4]+' / '+Split[5]+' / '+Split[6]+' / '+Split[7]+'\n'+Split[8]+' / '+Split[9]
+
                 Start = 1
-                for (k=0; k<10; k++){
-                    for (i=Start; i<Start+SplitList[k]; i++){
-                        if (document.getElementById(i).textContent != "-" && String(Split[k]) == '0'){
-                            document.getElementById(i).style.borderColor = "rgb(151, 193, 169)"
+                for (k = 0; k < 10; k++){
+                    Wrong = 0
+                    for (i = Start; i < Start+Correct[45+k]; i++){
+                        item = document.getElementById(i).textContent
+                        if (item != "-" && item != Correct[i-1]){Wrong += 1}
+                    }
+                    Split += Wrong
+                    Start += Correct[45+k]
+                }
+
+                Start = 1
+                for (k = 0; k < 10; k++){
+                    for (i = Start; i < Start+Correct[45+k]; i++){
+                        item = document.getElementById(i)
+                        if (item.textContent != "-" && Split[k] == '0'){
+                            item.style.borderColor = "rgb(151, 193, 169)"
                         }else{
-                            document.getElementById(i).style.borderColor = "rgb(200, 200, 200)"
+                            item.style.borderColor = "rgb(200, 200, 200)"
                         }
                     }
-                    Start += SplitList[k]
+                    Start += Correct[45+k]
                 }
+
+                N1 = Split[0]+' / '+Split[1]+' / '+Split[2]+' / '+Split[3]
+                N2 = Split[4]+' / '+Split[5]+' / '+Split[6]+' / '+Split[7]
+                N3 = Split[8]+' / '+Split[9]
+                document.getElementById('N').textContent = N1+'\n'+N2+'\n'+N3
             }
 
-            function funcGive(){
-                Give = !Give
-                if (Give == true){document.getElementById('A4').textContent = '!'}
-                else{document.getElementById('A4').textContent = '4'}
+            function Give(){
+                GiveOn = !GiveOn
+                if (GiveOn == true){document.getElementById('A4').textContent = '!'}
+                if (GiveOn == false){document.getElementById('A4').textContent = '4'}
             }
 
             function Save(){
-                if (document.getElementById('1').textContent == '-'){
-                    OMRCallList = window.localStorage.getItem('OMR_K')
-                    for (i=0; i<45; i++){document.getElementById(i+1).textContent = OMRCallList[i]}
-                    for (i=0; i<45; i++){document.getElementById(i+1).style.borderColor = "rgb(200, 200, 200)"}
+                Copy = ''
+                if (document.getElementById('1').textContent != '-'){
+                    Copy = ''
+                    for (i = 1; i <= 45; i++){Copy += document.getElementById(i).textContent}
+                    window.localStorage.setItem('OMR', Copy)
+                    Copy = ''
+                    for (i = 1; i <= 55; i++){Copy += Correct[i-1]}
+                    window.localStorage.setItem('OMR_Correct', Copy)
                 }else{
-                    OMRList = ''
-                    for (i=0; i<45; i++){OMRList += document.getElementById(i+1).textContent}
-                    window.localStorage.setItem('OMR_K', OMRList)
+                    Paste = window.localStorage.getItem('OMR')
+                    for (i = 1; i <= 45; i++){document.getElementById(i).textContent = Paste[i-1]}
+                    Paste = window.localStorage.getItem('OMR_Correct')
+                    for (i = 1; i <= 55; i++){Correct.push(Paste[i-1])}
+                    item = document.getElementsByClassName('Block')
+                    for (i = 0; i < item.length; i++){item.item(i).style.borderColor = "rgb(000, 000, 000)"}
                 }
             }
         </script>
