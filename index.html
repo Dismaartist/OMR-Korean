@@ -24,7 +24,7 @@
 
             #Plate{
                 position: absolute;
-                width: 60%;
+                width: 80%;
                 height: 95%;
                 top: 50%;
                 left: 50%;
@@ -236,6 +236,7 @@
                     item = document.getElementById(Ready[0])
                     item.textContent = Num
                     item.style.borderColor = "rgb(200, 200, 200)"
+                    if (Ready[0] == 45){Ready = []}
                     if (Ready[0] < 45){
                         Ready.push(Ready[0] + 1)
                         Ready.splice(0, 2)
@@ -279,7 +280,8 @@
                 var reader = new FileReader();
                 reader.readAsText(file, "utf-8");
                 reader.onload = function () {
-                    Correct = reader.result.replace(/\r\n/g, ',').split(',')
+                    Correct = reader.result.replace(/\r\n/g, ',').split(',').map(Number)
+                    console.log(Correct)
                     item = document.getElementsByClassName('Block')
                     for (i = 0; i < item.length; i++){item.item(i).style.borderColor = "rgb(000, 000, 000)"}
                 };
@@ -355,4 +357,3 @@
         </script>
     </body>
 </html>
-
